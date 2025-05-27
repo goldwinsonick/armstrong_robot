@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="armstrong_v1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="materials.urdf.xacro" />
+    <xacro:include filename="gazebo_plugins.urdf.xacro" />
+    <xacro:include filename="ros2_control.urdf.xacro" />
+    <xacro:include filename="base.urdf.xacro" />
+
+</robot>

@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="base_mass" value="100.0" />
+    <xacro:property name="base_dx" value="0.2" />
+    <xacro:property name="base_dy" value="0.2" />
+    <xacro:property name="base_dz" value="0.3" />
+    <xacro:property name="link1_mass" value="0.5" />
+    <xacro:property name="link1_length" value="0.5" />
+    <xacro:property name="link1_radius" value="0.05" />
+    <xacro:property name="link2_mass" value="0.3" />
+    <xacro:property name="link2_length" value="0.4" />
+    <xacro:property name="link2_radius" value="0.04" />
+    <xacro:property name="tooltip_radius" value="0.1" />
+    <xacro:property name="tooltip_mass" value="0.01" />
+
+    <xacro:macro name="cylinder_inertia" params="mass radius length">
+        <inertia ixx="${mass * (3*radius*radius + length*length) / 12.0}"
+                 iyy="${mass * (3*radius*radius + length*length) / 12.0}"
+                 izz="${mass * radius*radius / 2.0}"
+                 ixy="0.0" ixz="0.0" iyz="0.0" />
+    </xacro:macro>
+
+    <xacro:macro name="box_inertia" params="mass x y z">
+        <inertia ixx="${mass / 12.0 * (y*y + z*z)}"
+                 iyy="${mass / 12.0 * (x*x + z*z)}"
+                 izz="${mass / 12.0 * (x*x + y*y)}"
+                 ixy="0.0" ixz="0.0" iyz="0.0" />
+    </xacro:macro>
+
+    <xacro:macro name="sphere_inertia" params="mass radius">
+        <inertia ixx="${2.0/5.0 * mass * radius*radius}"
+                 iyy="${2.0/5.0 * mass * radius*radius}"
+                 izz="${2.0/5.0 * mass * radius*radius}"
+                 ixy="0.0" ixz="0.0" iyz="0.0" />
+    </xacro:macro>
+
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="${base_dx} ${base_dy} ${base_dz}" />
+            </geometry>
+            <material name="armstrong_grey"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="${base_dx} ${base_dy} ${base_dz}" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="${base_mass}" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <xacro:box_inertia mass="${base_mass}" x="${base_dx}" y="${base_dy}" z="${base_dz}" />
+        </inertial>
+    </link>
+
+    <joint name="joint1" type="revolute">
+        <parent link="base_link" />
+        <child link="link1" />
+        <origin xyz="0 0 ${base_dz/2}" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit lower="${-pi/2}" upper="${pi/2}" effort="100" velocity="3.0" />
+        <dynamics damping="0.1" friction="0.1"/>
+    </joint>
+
+    <link name="link1">
+        <visual>
+            <origin xyz="0 0 ${link1_length/2}" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="${link1_radius}" length="${link1_length}" />
+            </geometry>
+            <material name="armstrong_blue"/> </visual>
+        <collision>
+            <origin xyz="0 0 ${link1_length/2}" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="${link1_radius}" length="${link1_length}" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="${link1_mass}" />
+            <origin xyz="0 0 ${link1_length/2}" rpy="0 0 0" />
+            <xacro:cylinder_inertia mass="${link1_mass}" radius="${link1_radius}" length="${link1_length}" />
+        </inertial>
+    </link>
+
+    <joint name="joint2" type="revolute">
+        <parent link="link1" />
+        <child link="link2" />
+        <origin xyz="0 0 ${link1_length}" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit lower="${-pi/2}" upper="${pi/2}" effort="50" velocity="3.0" />
+        <dynamics damping="0.1" friction="0.1"/>
+    </joint>
+
+    <link name="link2">
+        <visual>
+            <origin xyz="0 0 ${link2_length/2}" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="${link2_radius}" length="${link2_length}" />
+            </geometry>
+            <material name="armstrong_green"/> </visual>
+        <collision>
+            <origin xyz="0 0 ${link2_length/2}" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="${link2_radius}" length="${link2_length}" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="${link2_mass}" />
+            <origin xyz="0 0 ${link2_length/2}" rpy="0 0 0" />
+            <xacro:cylinder_inertia mass="${link2_mass}" radius="${link2_radius}" length="${link2_length}" />
+        </inertial>
+    </link>
+
+    <link name="tool_tip">
+        <visual>
+            <geometry>
+                <sphere radius="${tooltip_radius}" />
+            </geometry>
+            <material name="armstrong_red"/> </visual>
+        <collision>
+            <geometry>
+                <sphere radius="${tooltip_radius}" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="${tooltip_mass}" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <xacro:sphere_inertia mass="${tooltip_mass}" radius="${tooltip_radius}" />
+        </inertial>
+    </link>
+
+    <joint name="joint_tool_tip" type="fixed">
+        <parent link="link2"/>
+        <child link="tool_tip"/>
+        <origin xyz="0 0 ${link2_length}" rpy="0 0 0"/>
+    </joint>
+
+</robot>

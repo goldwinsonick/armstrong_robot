@@ -1,0 +1,9 @@
+/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_controller/CMakeFiles/uninstall.dir
+/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_controller/CMakeFiles/armstrong_controller_uninstall.dir
+/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_controller/CMakeFiles/test.dir
+/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_controller/CMakeFiles/edit_cache.dir
+/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_controller/CMakeFiles/rebuild_cache.dir
+/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_controller/CMakeFiles/list_install_components.dir
+/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_controller/CMakeFiles/install.dir
+/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_controller/CMakeFiles/install/local.dir
+/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_controller/CMakeFiles/install/strip.dir

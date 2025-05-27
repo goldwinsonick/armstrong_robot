@@ -1,0 +1,17 @@
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/config/armstrong_v1_controllers.yaml
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/launch/controller.launch.py
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/ament_index/resource_index/package_run_dependencies/armstrong_controller
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/ament_index/resource_index/parent_prefix_path/armstrong_controller
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/environment/ament_prefix_path.sh
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/environment/ament_prefix_path.dsv
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/environment/path.sh
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/environment/path.dsv
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/local_setup.bash
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/local_setup.sh
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/local_setup.zsh
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/local_setup.dsv
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/package.dsv
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/ament_index/resource_index/packages/armstrong_controller
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/cmake/armstrong_controllerConfig.cmake
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/cmake/armstrong_controllerConfig-version.cmake
+/home/gswt/gswt/armstrong_robot/armstrong_ws/install/armstrong_controller/share/armstrong_controller/package.xml
