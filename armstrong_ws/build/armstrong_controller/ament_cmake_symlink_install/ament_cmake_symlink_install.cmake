@@ -313,6 +313,9 @@ message(STATUS "Execute custom install script")
 # install(DIRECTORY "config" "launch" "DESTINATION" "share/armstrong_controller")
 ament_cmake_symlink_install_directory("/home/gswt/gswt/armstrong_robot/armstrong_ws/src/armstrong_controller" DIRECTORY "config" "launch" "DESTINATION" "share/armstrong_controller")
 
+# install(PROGRAMS "scripts/oltf_data_acq.py" "DESTINATION" "lib/armstrong_controller")
+ament_cmake_symlink_install_programs("/home/gswt/gswt/armstrong_robot/armstrong_ws/src/armstrong_controller" PROGRAMS "scripts/oltf_data_acq.py" "DESTINATION" "lib/armstrong_controller")
+
 # install(FILES "/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_controller/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/armstrong_controller" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/gswt/gswt/armstrong_robot/armstrong_ws/src/armstrong_controller" FILES "/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_controller/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/armstrong_controller" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 
