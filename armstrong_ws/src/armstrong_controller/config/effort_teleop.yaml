@@ -1,0 +1,22 @@
+effort_teleop_node:
+  ros__parameters:
+    # Command topics for the effort controllers of each joint
+    joint1_command_topic: "/joint1_effort_controller/commands"
+    joint2_command_topic: "/joint2_effort_controller/commands"
+
+    # Magnitude of effort (Nm) to apply when a key is pressed
+    effort_magnitude_j1: 1000.0  # Nm for joint1
+    effort_magnitude_j2: 200.0  # Nm for joint2
+
+    # Rate (Hz) at which to publish effort commands
+    publish_rate: 30.0 # Higher rate for better responsiveness
+
+    # Key mappings (use lowercase letters or special key names from pynput like 'Key.esc')
+    # Ensure these are single characters if you use key.char later.
+    # For special keys, pynput returns Key.xxx objects.
+    key_mappings:
+      joint1_positive: "w"
+      joint1_negative: "s"
+      joint2_positive: "o"
+      joint2_negative: "l"
+      quit: "q"

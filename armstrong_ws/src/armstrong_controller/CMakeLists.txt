@@ -19,6 +19,7 @@ install(DIRECTORY
 
 install(PROGRAMS
   scripts/oltf_data_acq.py
+  scripts/effort_teleop.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
