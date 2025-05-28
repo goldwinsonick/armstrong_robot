@@ -1,9 +1,0 @@
-/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_bringup/CMakeFiles/uninstall.dir
-/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_bringup/CMakeFiles/armstrong_bringup_uninstall.dir
-/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_bringup/CMakeFiles/test.dir
-/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_bringup/CMakeFiles/edit_cache.dir
-/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_bringup/CMakeFiles/rebuild_cache.dir
-/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_bringup/CMakeFiles/list_install_components.dir
-/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_bringup/CMakeFiles/install.dir
-/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_bringup/CMakeFiles/install/local.dir
-/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_bringup/CMakeFiles/install/strip.dir

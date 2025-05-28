@@ -1,1 +1,0 @@
-/home/gswt/gswt/armstrong_robot/armstrong_ws/build/armstrong_bringup/ament_cmake_core/armstrong_bringupConfig-version.cmake

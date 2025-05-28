@@ -62,6 +62,8 @@ class EffortTeleopNode(Node):
         # Effort states
         self.target_effort_j1 = 0.0
         self.target_effort_j2 = 0.0
+        self.last_target_effort_j1 = 0.0
+        self.last_target_effort_j2 = 0.0
         self.active_keys = set() # Set to store currently pressed relevant keys
 
         # Keyboard listener setup
@@ -138,11 +140,15 @@ class EffortTeleopNode(Node):
         # Publish
         j1_msg = Float64MultiArray()
         j1_msg.data = [self.target_effort_j1]
-        self.j1_effort_pub.publish(j1_msg)
+        if self.target_effort_j1 != self.last_target_effort_j1:
+            self.j1_effort_pub.publish(j1_msg)
+        self.last_target_effort_j1 = self.target_effort_j1
 
         j2_msg = Float64MultiArray()
         j2_msg.data = [self.target_effort_j2]
-        self.j2_effort_pub.publish(j2_msg)
+        if self.target_effort_j2 != self.last_target_effort_j2:
+            self.j2_effort_pub.publish(j2_msg)
+        self.last_target_effort_j2 = self.target_effort_j2
 
     def publish_efforts_callback(self):
         """Called by the ROS2 timer."""

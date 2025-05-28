@@ -10,7 +10,7 @@ from pathlib import Path
 
 class OLTFTestNode(Node):
     def __init__(self):
-        super().__init__('oltf_test_node')
+        super().__init__('oltf_data_acq_node')
 
         # Declare parameters with default values (though YAML will override)
         self.declare_parameter('joint_name_to_test', 'joint1')

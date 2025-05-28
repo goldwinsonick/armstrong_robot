@@ -1,1 +1,0 @@
-/home/gswt/gswt/armstrong_robot/armstrong_ws/src/armstrong_controller/scripts/effort_teleop.py
