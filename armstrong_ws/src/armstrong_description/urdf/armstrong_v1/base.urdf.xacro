@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <xacro:arg name="lock_joint1_arg" default="true" />
+
     <xacro:property name="base_mass" value="10000.0" />
     <xacro:property name="base_dx" value="0.5" />
     <xacro:property name="base_dy" value="0.5" />
     <xacro:property name="base_dz" value="0.3" />
-    <!-- <xacro:property name="joint1_type" value="fixed" /> -->
     <xacro:property name="joint1_type" value="revolute" />
-    <!-- <xacro:property name="joint2_type" value="fixed" /> -->
     <xacro:property name="joint2_type" value="revolute" />
     <xacro:property name="link1_mass" value="40" />
     <xacro:property name="link1_length" value="1.6" />
@@ -63,7 +63,14 @@
         <child link="link1" />
         <origin xyz="0 0 ${base_dz/2}" rpy="0 0 0" />
         <axis xyz="0 1 0" />
-        <limit lower="${-pi/2 + pi/4}" upper="${pi/2 - pi/4}" effort="1000" velocity="3.0" />
+        <!-- Conditional limits for joint1 -->
+        <xacro:if value="${$(arg lock_joint1_arg)}">
+            <limit lower="0" upper="0" effort="1000" velocity="3.0" />
+        </xacro:if>
+        <xacro:unless value="${$(arg lock_joint1_arg)}">
+            <limit lower="${-pi/2 + pi/4}" upper="${pi/2 - pi/4}" effort="1000" velocity="3.0" />
+        </xacro:unless>
+        <limit lower="0" upper="0" effort="1000" velocity="3.0" />
         <dynamics damping="0.1" friction="0.1"/>
     </joint>
 
@@ -92,7 +99,7 @@
         <child link="link2" />
         <origin xyz="0 0 ${link1_length}" rpy="0 0 0" />
         <axis xyz="0 1 0" />
-        <limit lower="${-pi/2}" upper="${pi/2}" effort="200" velocity="3.0" />
+        <limit lower="${-pi/2}" upper="${pi/2}" effort="300" velocity="3.0" />
         <dynamics damping="0.1" friction="0.1"/>
     </joint>
 

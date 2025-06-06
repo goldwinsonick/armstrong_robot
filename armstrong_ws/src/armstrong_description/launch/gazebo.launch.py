@@ -24,6 +24,10 @@ def generate_launch_description():
     z_arg = DeclareLaunchArgument(
         "z", default_value="1.0", description="Initial z position"
     )
+    lock_joint1_arg = DeclareLaunchArgument(
+        "lock_joint1", default_value="false",
+        description="Lock joint1",
+    )
 
     # Paths
     pkg_desc = get_package_share_directory("armstrong_description")
@@ -43,7 +47,13 @@ def generate_launch_description():
     )
 
     # robot_description
-    robot_description = Command(['xacro ', xacro_path])
+    robot_description_command = [
+        "xacro ",
+        xacro_path,
+        " lock_joint1_arg:=",
+        LaunchConfiguration("lock_joint1"),
+    ]
+    robot_description = Command(robot_description_command)
 
     # robot_state_publisher
     robot_state_publisher = Node(
@@ -84,6 +94,7 @@ def generate_launch_description():
         x_arg,
         y_arg,
         z_arg,
+        lock_joint1_arg,
         ign_resource_path,
         robot_state_publisher,
         gazebo_launch,

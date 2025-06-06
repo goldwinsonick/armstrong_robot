@@ -1,47 +1,23 @@
-# --- TEST JOINT 1 ---
-# oltf_test_node:
-#   ros__parameters:
-#     joint_name_to_test: "joint1"
-#     effort_command_topic: "/joint1_effort_controller/commands"
-    
-#     step_effort_magnitude: 1000.0
-#     initial_settle_duration: 2.0
-#     step_duration: 5.0
-#     post_step_duration: 2.0
-#     log_frequency: 50.0
-
-#     log_file_path: "joint1_oltf.csv"
-
-# --- TEST JOINT 2 ---
 oltf_data_acq_node:
   ros__parameters:
     joint_name_to_test: "joint2"
     effort_command_topic: "/joint2_effort_controller/commands"
-    
-    step_effort_magnitude: 200.0
+
     initial_settle_duration: 2.0
-    step_duration: 5.0
-    post_step_duration: 2.0
-    log_frequency: 50.0
-
-    log_file_path: "joint2_oltf.csv"
-
-# oltf_test_node:
-#   ros__parameters:
-#     joint_name_to_test: "joint1"
-#     effort_command_topic: "/joint1_effort_controller/commands"
     
-#     # Magnitude of the step effort to apply (in Nm)
-#     step_effort_magnitude: 2.0
-#     # Duration (seconds) to apply zero effort before the step
-#     initial_settle_duration: 2.0
-#     # Duration (seconds) to apply the step effort
-#     step_duration: 5.0
-#     # Duration (seconds) to apply zero effort after the step (and continue logging)
-#     post_step_duration: 2.0
-#     # Frequency (Hz) at which to log data
-#     log_frequency: 50.0 # Log data 50 times per second
+    torque_sequence:
+      - 160.0
+      - 2.8
+      - 120.0
+      - 1.1
+      - -190.0
+      - 1.7
+      - 180.0
+      - 1.2
+      - -190.0
+      - 1.0
 
-#     # Output CSV file path. This can be an absolute path or relative to where the node is run.
-#     # Example: "oltf_data/joint1_data.csv". Directory 'oltf_data' will be created if it doesn't exist.
-#     log_file_path: "oltf_joint_data.csv"
+    final_settle_duration: 3.0 #s
+
+    log_frequency: 50.0 #Hz
+    log_file_path: "./test1.csv"

@@ -23,4 +23,14 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+
+add_executable(joint_pid_controller
+  src/joint_pid_controller.cpp
+)
+
+install(TARGETS
+  joint_pid_controller
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()
