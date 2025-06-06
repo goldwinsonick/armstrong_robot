@@ -14,7 +14,7 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='armstrong_controller',
-            executable='joint_pid_controller_node', # Name of your C++ executable
+            executable='joint_pid_controller', # Name of your C++ executable
             name='joint_pid_controller_node',
             output='screen',
             parameters=[pid_config_file_path]

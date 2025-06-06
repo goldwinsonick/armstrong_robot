@@ -1,35 +1,35 @@
-joint_pid_controller_node: # Name of the node
+joint_pid_controller_node:
   ros__parameters:
     control_loop_rate: 50.0 # Hz
 
     feedback_joint_states_topic: "/joint_states"
-    # This topic should publish sensor_msgs/msg/JointState with target positions
-    target_joint_angles_topic: "/arm/target_joint_states" 
 
     # PID and controller settings for joint1
     joint1:
-      target_joint_name: "joint1" # Must match name in /joint_states and URDF
+      target_joint_name: "joint1"
       effort_command_topic: "/joint1_effort_controller/commands"
+      target_angle_topic: "/joint1_target_angle"
       pid:
-        kp: 100.0 # Proportional gain
-        ki: 10.0  # Integral gain
-        kd: 5.0   # Derivative gain
-        integral_clamp_min: -20.0 # Min value for integral term (anti-windup)
-        integral_clamp_max: 20.0  # Max value for integral term (anti-windup)
+        kp: 0.0
+        ki: 0.0
+        kd: 0.0
+        integral_clamp_min: -20.0
+        integral_clamp_max: 20.0
       output_limits:
-        min: -80.0 # Min effort output (Nm) - should be within URDF limits
-        max: 80.0  # Max effort output (Nm) - should be within URDF limits
+        min: -80.0
+        max: 80.0
 
     # PID and controller settings for joint2
     joint2:
-      target_joint_name: "joint2" # Must match name in /joint_states and URDF
+      target_joint_name: "joint2"
       effort_command_topic: "/joint2_effort_controller/commands"
+      target_angle_topic: "/joint2_target_angle"
       pid:
-        kp: 80.0
-        ki: 8.0
-        kd: 3.0
-        integral_clamp_min: -15.0
-        integral_clamp_max: 15.0
+        kp: 2300.0
+        ki: 300.0
+        kd: 400.0
+        integral_clamp_min: -500.0
+        integral_clamp_max: 500.0
       output_limits:
-        min: -40.0
-        max: 40.0
+        min: -250.0
+        max: 250.0
