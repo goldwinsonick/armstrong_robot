@@ -1,6 +1,6 @@
 joint2_target_publisher:
   ros__parameters:
     amplitude: 0.5
-    period: 20.0  # seconds for a full cycle (-0.8 to 0.8 to -0.8)
+    period: 3.0  # seconds for a full cycle (-0.8 to 0.8 to -0.8)
     publish_rate: 20.0  # Hz
     topic: "/joint2_target_angle"
